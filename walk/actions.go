@@ -21,6 +21,10 @@ func filterOut(path, ext string, minSize int64, info os.FileInfo) bool {
 }
 
 func listFile(path string, out io.Writer) error {
-	_, err := fmt.Fprintf(out, path)
+	_, err := fmt.Fprintln(out, path)
 	return err
+}
+
+func delFile(path string) error {
+	return os.Remove(path)
 }
